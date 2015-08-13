@@ -10,7 +10,7 @@
 2. How to
 3. About
 
-### If you are - paranoid, it does not mean that you are not being spying.
+### If you are paranoid, it does not mean that you are not being tracking.
 
 ### The list of functions in the performance.
 
