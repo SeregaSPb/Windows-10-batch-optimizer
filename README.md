@@ -1,7 +1,5 @@
 # Windows 10 batch optimizer.
-
 ## Fast! Easy! Secure! 
-
 ##<a href="http://seregaspb.ru/blog/nastrojshik-windows-10" target="_blank">Oficial page of Win 10 optimizer</a>
 ##### Help or assist me to become better! Have any ideas or solutions - you can share!
 ##### You can easy disable automatic updates Windows 10 and more tricks!
@@ -76,7 +74,7 @@ Some functions may not work or partially work not at all, the code is fairly cru
 
 How to set up privacy in Windows 10? Why not turn off the automatic updates? Now, in the system we should to look advertising and corporations keep track of each button is pressed by us? You can certainly enjoy the tested older software, but better understanding and configure the new!
 
-##### Help or assist me to become better! Have any ideas or solutions - you can send!
+##### Help or assist me to become better! Have any ideas or solutions - you can share!
 * <a href="http://www.facebook.com/s9325901" title="facebook" target="_blank">Facebook</a>
 * <a href="http://vk.com/s9325901">VKontakte</a> 
 * <a href="http://seregaspb.ru/kontakty" title="my site" target="_blank">SeregaSPb.ru</a>
