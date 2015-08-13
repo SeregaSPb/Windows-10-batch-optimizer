@@ -1,6 +1,6 @@
 # Windows 10 batch optimizer.
 ## Fast! Easy! Secure!
-## <a href="http://seregaspb.ru/blog/avtonastrojshik-windows-10" target="_blank">Oficial page</a>
+## <a href="http://seregaspb.ru/blog/nastrojshik-windows-10" target="_blank">Oficial page</a>
 ##### Help or assist me to become better! Have any ideas or solutions - you can share!
 ##### You can easy disable automatic updates Windows 10 and more tricks!
 ##### Remove unwanted junks and tune up tweaks!
@@ -10,7 +10,7 @@
 2. How to
 3. About
 
-### If you are paranoid, it does not mean that you are not being tracking.
+### If you are - paranoid, it does not mean that you are not being spying.
 
 ### The list of functions in the performance.
 
