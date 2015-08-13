@@ -21,6 +21,7 @@ SET NOURL=127.0.0.0
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO ********** Regystry backup COPY to C:/RegBackup/Backup.reg ********** 
 ECHO ********** Сделать копию реестра в C:/RegBackup/Backup.reg  **********
+
 SETLOCAL
 SET RegBackup=%SYSTEMDRIVE%\RegBackup
 IF NOT EXIST "%RegBackup%" md "%RegBackup%"
