@@ -1,6 +1,6 @@
 # Windows 10 batch optimizer.
 ## Fast! Easy! Secure!
-## <a href="http://seregaspb.ru/blog/avtonastrojka-windows-10" target="_blank">Oficial page</a>
+## <a href="http://seregaspb.ru/blog/avtonastrojshik-windows-10" target="_blank">Oficial page</a>
 ##### Help or assist me to become better! Have any ideas or solutions - you can share!
 ##### You can easy disable automatic updates Windows 10 and more tricks!
 ##### Remove unwanted junks and tune up tweaks!
