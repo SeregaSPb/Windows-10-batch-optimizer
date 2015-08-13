@@ -1,27 +1,27 @@
 @ECHO OFF
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 COLOR 0C
 ECHO ********** Options ********** 
 ECHO ********** Настройки  **********
-ECHO ********** ���������  **********
 
 REM 1-Disable autoupdate,2-ask for download and install, 3-ask for reboot, 4-automatic update
-REM 1-�������� �������������� ����������,2-���������� � �������� � ���������, 3-���������� � ������������, 4-�������������� ����������
+REM 1-отлючить автоматическое обновление,2-спрашивать о загрузке и установке, 3-спрашивать о перезагрузке, 4-автоматическое обновление
 SET AutoUpdateN=2
 
 REM if system on SSD drive - set 0, HDD - 3
-REM ���� ������� �� SSD ����� - ���������� 0, HDD - 3
+REM Если система на SSD диске - установите 0, HDD - 3
 SET Prefetch=0
 
 REM Computer name
-REM ��� ����������
+REM Имя компьютера
 SET MyComputerName=Home-PC
 
-REM Unused IP adress (for ���������������)
-REM �������������� IP (for redirects)
+REM Unused IP adress (for перенаправлений)
+REM Неиспользуемый IP (for redirects)
 SET NOURL=127.0.0.0
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO ********** Regystry backup COPY to C:/RegBackup/Backup.reg ********** 
-ECHO ********** ������� ����� ������� � C:/RegBackup/Backup.reg  **********
+ECHO ********** Сделать копию реестра в C:/RegBackup/Backup.reg  **********
 SETLOCAL
 SET RegBackup=%SYSTEMDRIVE%\RegBackup
 IF NOT EXIST "%RegBackup%" md "%RegBackup%"
@@ -44,12 +44,12 @@ DEL "%RegBackup%\HKU.reg"
 DEL "%RegBackup%\HKCC.reg"
 
 ECHO ********** Disable UAC **********
-ECHO ********** ��������� �������� ������� ������� **********
+ECHO ********** Отключить контроль учетных записей **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v "EnableLUA" /t REG_DWORD /d 0 /f
 
 ECHO ********** Don't allow Windows 10 to repair itself from Windows Update **********
-ECHO ********** ��������� Windows 10 ������������ ���� �� Windows Update **********
+ECHO ********** Запретить Windows 10 восстановить себя от Windows Update **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy Objects\{7C0F6EBB-E44C-48D1-82A9-0561C4650831}Machine\Software\Microsoft\Windows\CurrentVersion\Policies\Servicing" /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy Objects\{7C0F6EBB-E44C-48D1-82A9-0561C4650831}Machine\Software\Microsoft\Windows\CurrentVersion\Policies\Servicing" /v "**del.RepairContentServerSource" /t REG_SZ /d " " /f
@@ -60,7 +60,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Servicing" /v "
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Servicing" /v "UseWindowsUpdate" /t REG_DWORD /d 2 /f
 
 ECHO ********** Regystry tweaks **********
-ECHO ********** ��������� ������������������ **********
+ECHO ********** Настроить конфиденциальность **********
 
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters" /v "EnablePrefetcher" /t REG_DWORD /d %Prefetch% /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t REG_DWORD /d 1 /f
@@ -80,13 +80,13 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "DisableFir
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "RunOnceHasShown" /t REG_DWORD /d 1 /f
 
 ECHO ********** Don't allow SpyNet **********
-ECHO ********** ��������� SpyNet **********
+ECHO ********** Отключить SpyNet **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows Defender\Spynet" /v " SpyNetReporting" /t REG_DWORD /d 0 /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows Defender\Spynet" /v " SubmitSamplesConsent" /t REG_DWORD /d 0 /f
 
 ECHO ********** Disable Policies **********
-ECHO ********** ��������� ������������� ��������� �������� **********
+ECHO ********** Отключить нежелательные групповые политики **********
 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Error Reporting" /v "Disabled" /t REG_DWORD /d 1 /f
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v "HiberbootEnabled" /t REG_DWORD /d 0 /f
@@ -100,7 +100,7 @@ REG Delete "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v "
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" /v "Enabled" /t REG_DWORD /d 0 /f
 
 ECHO ********** Remove Telemetry and Data Collection and Disable Cortana **********
-ECHO ********** ������� ���������� ����� ������, ��������� ������� **********
+ECHO ********** Удалить телеметрию сбора данных, отключает Кортану **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WINEVT\Channels\Microsoft-Windows-Application-Experience/Program-Telemetry" /v "Enabled" /t REG_DWORD /d 0 /f
@@ -123,7 +123,7 @@ REG ADD "HKLM\COMPONENTS\DerivedData\Components\amd64_microsoft-windows-c..lemet
 REG ADD "HKLM\COMPONENTS\DerivedData\Components\amd64_microsoft-windows-c..lemetry.lib.cortana_31bf3856ad364e35_10.0.10240.16384_none_40ba2ec3d03bceb0" /v "f!proactive-telemetry-inter_58073761d33f144b" /t REG_DWORD /d 0 /f
 
 ECHO ********** Disable services **********
-ECHO ********** ��������� ������ **********
+ECHO ********** Отключить службы **********
 
 SC config "CscService" start= disabled
 SC config "MapsBroker" start= disabled
@@ -134,7 +134,7 @@ SC config "tiledatamodelsvc" start= demand
 SC config "WerSvc" start= demand
 
 ECHO ********** Delete services **********
-ECHO ********** ������� ������ **********
+ECHO ********** Удалить службы **********
 
 PowerShell -Command "Get-Service DiagTrack | Set-Service -StartupType Disabled"
 PowerShell -Command "Get-Service dmwappushservice | Set-Service -StartupType Disabled"
@@ -170,7 +170,7 @@ SC delete "WSearch"
 SC delete "SysMain"
 
 ECHO ********** Disable and delete search and indexes **********
-ECHO ********** ��������� � ������� ��������-����� � ������� **********
+ECHO ********** Отключить и удалить интернет-поиск и индексы **********
 
 DEL "C:\ProgramData\Microsoft\Search\Data\Applications\Windows\Windows.edb" /s
 DEL "C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl" /s
@@ -182,7 +182,7 @@ ECHO "" > C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagt
 ATTRIB +r "C:\ProgramData\Microsoft\Diagnosis\ETLLogs\AutoLogger\AutoLogger-Diagtrack-Listener.etl"
 
 ECHO ********** Disable tasks **********
-ECHO ********** ��������� �������� ������ � ������������ **********
+ECHO ********** Отключить ненужные задачи в планировщике **********
 
 SCHTASKS /Change /TN "\Microsoft\Windows\AppID\SmartScreenSpecific" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /DISABLE
@@ -227,7 +227,7 @@ SCHTASKS /Change /TN "\Microsoft\Windows\\Microsoft\Windows\File Classification 
 SCHTASKS /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /DISABLE
 
 ECHO ********** Block hosts **********
-ECHO ********** ����������� ������������� ��� ���� � ���� hosts **********
+ECHO ********** Блокировать нежелательные веб узлы в файл hosts **********
 
 COPY "%WINDIR%\system32\drivers\etc\hosts" "%WINDIR%\system32\drivers\etc\hosts.bak"
 ATTRIB -r "%WINDIR%\system32\drivers\etc\hosts"
@@ -549,7 +549,7 @@ IF %ERRORLEVEL% NEQ 0 ECHO ^%NOURL% BN1WNS2011508.wns.windows.com>>%HOSTS%
 ATTRIB +r "%WINDIR%\system32\drivers\etc\hosts"
 
 ECHO ********** Remove Retail Demo **********
-ECHO ********** ������� Demo ������� **********
+ECHO ********** Удалить Demo контент **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{12D4C69E-24AD-4923-BE19-31321C43A767}" /f
 takeown /f %ProgramData%\Microsoft\Windows\RetailDemo /r /d y
@@ -560,7 +560,7 @@ icacls "C:\Windows\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyew
 rd /s /q "C:\Windows\SystemApps\Microsoft.Windows.CloudExperienceHost_cw5n1h2txyewy\RetailDemo" 
 
 ECHO ********** Delete OneDrive **********
-ECHO ********** ������� OneDrive **********
+ECHO ********** Удалить OneDrive **********
 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive" /v DisableFileSyncNGSC /t REG_DWORD /d 1 /f
 TASKKILL /f /im OneDrive.exe
@@ -584,7 +584,7 @@ REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescri
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{24D89E24-2F19-4534-9DDE-6A6671FBB8FE}" /f
 
 ECHO ********** Disables unwanted Windows features **********
-ECHO ********** ��������� ������������� �������� Windows **********
+ECHO ********** Отключить нежелательные свойства Windows **********
 
 PowerShell -Command Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "Internet-Explorer-Optional-amd64"
 PowerShell -Command Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "MediaPlayback"
@@ -592,7 +592,7 @@ PowerShell -Command Disable-WindowsOptionalFeature -Online -NoRestart -FeatureNa
 PowerShell -Command Disable-WindowsOptionalFeature -Online -NoRestart -FeatureName "WorkFolders-Client"
 
 ECHO ********** Delete other Apps **********
-ECHO ********** ������� � ������ ���������� Metro **********
+ECHO ********** Удалить и другие приложения Metro **********
 
 PowerShell -Command "Get-AppxProvisionedPackage -Online | Where-Object DisplayName -eq Microsoft.3DBuilder | Remove-AppxProvisionedPackage -Online"
 PowerShell -Command "Get-AppxProvisionedPackage -Online | Where-Object DisplayName -eq Microsoft.BingFinance | Remove-AppxProvisionedPackage -Online"
@@ -613,53 +613,53 @@ PowerShell -Command "Get-AppXPackage -User  | Remove-AppxPackage"
 PowerShell -Command "Get-AppxPackage -AllUsers | Remove-AppxPackage"
 
 ECHO ********** Remove 3D Objects **********
-ECHO ********** ������� 3D ������� **********
+ECHO ********** Удалить 3D объекты **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{31C0DD25-9439-4F12-BF41-7FF4EDA38722}" /f
 
 ECHO ********** Remove CameraRollLibrary **********
-ECHO ********** ������� CameraRollLibrary **********
+ECHO ********** Удалить CameraRollLibrary **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{2B20DF75-1EDA-4039-8097-38798227D5B7}" /f
 
 ECHO ********** Remove from MyComputer menu Music **********
-ECHO ********** ������� �� ���� MyComputer ������ **********
+ECHO ********** Удалить из меню MyComputer Музыка **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}" /f
 REG Delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{3dfdf296-dbec-4fb4-81d1-6a3438bcf4de}" /f
 
 ECHO ********** Remove from MyComputer menu Pictures **********
-ECHO ********** ������� �� ���� MyComputer ����������� **********
+ECHO ********** Удалить из меню MyComputer Изображения **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}" /f
 REG Delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{24ad3ad4-a569-4530-98e1-ab02f9417aa8}" /f
 
 ECHO ********** Remove from MyComputer menu Videos **********
-ECHO ********** ������� �� ���� MyComputer ����� **********
+ECHO ********** Удалить из меню MyComputer Видео **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}" /f
 REG Delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{f86fa3ab-70d2-4fc7-9c99-fcbf05467f3a}" /f
 
 ECHO ********** Remove from MyComputer menu Documents **********
-ECHO ********** ������� �� ���� MyComputer ��������� **********
+ECHO ********** Удалить из меню MyComputer Документы **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{d3162b92-9365-467a-956b-92703aca08af}" /f
 REG Delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{d3162b92-9365-467a-956b-92703aca08af}" /f
 
 ECHO ********** Remove from MyComputer menu Downloads **********
-ECHO ********** ������� �� ���� MyComputer �������� **********
+ECHO ********** Удалить из меню MyComputer Загрузки **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088e3905-0323-4b02-9826-5d99428e115f}" /f
 REG Delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{088e3905-0323-4b02-9826-5d99428e115f}" /f
 
 ECHO ********** Remove from MyComputer menu Desktop **********
-ECHO ********** ������� �� ���� MyComputer ������� ���� **********
+ECHO ********** Удалить из меню MyComputer Рабочий стол **********
 
 REG Delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}" /f
 REG Delete "HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}" /f
 
 ECHO ********** Rename Computer **********
-ECHO ********** ������������� ��������� **********
+ECHO ********** Переименовать компьютер **********
 
 REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName /v ComputerName /t REG_SZ /d %MyComputerName% /f
 REG ADD HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName\ /v ComputerName /t REG_SZ /d %MyComputerName% /f
@@ -667,48 +667,48 @@ REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ /v Hostname /t 
 REG ADD HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\ /v "NV Hostname" /t REG_SZ /d %MyComputerName% /f
 
 ECHO ********** Set Auto Logon **********
-ECHO ********** ���������� �������������� ���� � ������� **********
+ECHO ********** Установить автоматический вход в систему **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "AutoAdminLogon" /t REG_DWORD /d 1 /f
 
 ECHO ********** Remove Logon screen wallpaper **********
-ECHO ********** ������ ���� �� ������ ����� **********
+ECHO ********** Убрать обои на экране входа **********
 
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\System" /v "DisableLogonBackgroundImage" /t REG_DWORD /d 1 /f
 
 ECHO ********** Show Computer shortcut on desktop **********
-ECHO ********** �������� ����� ��������� �� ������� ����� **********
+ECHO ********** Показать ярлык компьютер на рабочем столе **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" /t REG_DWORD /d 0 /f
 
 ECHO ********** Underline keyboard shortcuts and access keys **********
-ECHO ********** ����������� ��������� ������ � ������� ������� **********
+ECHO ********** Подчеркнуть сочетания клавиш и клавиши доступа **********
 
 REG ADD "HKCU\Control Panel\Accessibility\Keyboard Preference" /v "On" /t REG_SZ /d 1 /f
 
 ECHO ********** SET Windows Explorer to start on This PC instead of Quick Access **********
-ECHO ********** ���������� ��������� Windows ��� ������ ������ **********
+ECHO ********** Установить Проводник Windows для начала работы **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
 
 ECHO ********** Hide the search box from taskbar **********
-ECHO ********** ������ ���� ������ �� ������ ����� **********
+ECHO ********** Скрыть окно поиска из панели задач **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "SearchboxTaskbarMode" /t REG_DWORD /d 0 /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEnabled" /t REG_DWORD /d 0 /f
 
 ECHO ********** Disable MRU lists (jump lists) of XAML apps in Start Menu **********
-ECHO ********** ��������� ������ ���������� XAML � ���� ���� **********
+ECHO ********** Отключить списки приложений XAML в меню Пуск **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Start_TrackDocs" /t REG_DWORD /d 0 /f
 
 ECHO ********** Show file extensions **********
-ECHO ********** �������� ���������� ������ **********
+ECHO ********** Показать расширения файлов **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
 
 ECHO ********** Show hidden extension **********
-ECHO ********** �������� ������� ���������� **********
+ECHO ********** Показать скрытые расширения **********
 
 REG ADD "HKCR\lnkfile" /v "NeverShowExt" /f
 REG ADD "HKCR\IE.AssocFile.URL" /v "NeverShowExt" /f
@@ -720,7 +720,7 @@ REG ADD "HKCR\SHCmdFile" /v "NeverShowExt" /f
 REG ADD "HKCR\LibraryFolder" /v "NeverShowExt" /f
 
 ECHO ********** Use Windows Photo Viewer to open photo files **********
-ECHO ********** ������������ Photo Viewer, ����� ������� ����� ���������� **********
+ECHO ********** Использовать Photo Viewer, чтобы открыть файлы фотографий **********
 
 REG ADD "HKCU\SOFTWARE\Classes\.jpg" /v REG_SZ /d "PhotoViewer.FileAssoc.Tiff" /f
 REG ADD "HKCU\SOFTWARE\Classes\.jpeg" /v REG_SZ /d "PhotoViewer.FileAssoc.Tiff" /f
@@ -738,17 +738,17 @@ REG ADD "HKCR\Applications\photoviewer.dll\shell\print\command" /v "%%%%SystemRo
 REG ADD "HKCR\Applications\photoviewer.dll\shell\print\command" /v "%%%%ProgramFiles%%%%\Windows Photo Viewer\PhotoViewer.dll" /t REG_EXPAND_SZ /d ", ImageView_Fullscreen %%%%1" /f
 
 ECHO ********** Turn OFF Sticky Keys when SHIFT is pressed 5 times **********
-ECHO ********** ��������� ��������� ������ SHIFT ��� ������� 5 ��� **********
+ECHO ********** Выключите залипания клавиш SHIFT при нажатии 5 раз **********
 
 REG ADD "HKCU\Control Panel\Accessibility\StickyKeys" /v "Flags" /t REG_SZ /d "506" /f
 
 ECHO ********** Turn OFF Filter Keys when SHIFT is pressed for 8 seconds **********
-ECHO ********** ��������� ������ ������, ����� SHIFT ������ � ������� 8 ������ **********
+ECHO ********** Выключить Фильтр клавиш, когда SHIFT нажата в течение 8 секунд **********
 
 REG ADD "HKCU\Control Panel\Accessibility\Keyboard Response" /v "Flags" /t REG_SZ /d "122" /f
 
 ECHO ********** Change Clock and Date formats 24H, metric (Sign out required to see changes) **********
-ECHO ********** �������� ���� � ���� �������� 24 ����, ����������� ������� **********
+ECHO ********** Изменить часы и дата форматов 24 часа, метрическая система **********
 
 REG ADD "HKCU\Control Panel\International" /v "iMeasure" /t REG_SZ /d "0" /f
 REG ADD "HKCU\Control Panel\International" /v "iNegCurr" /t REG_SZ /d "1" /f
@@ -758,7 +758,7 @@ REG ADD "HKCU\Control Panel\International" /v "sShortTime" /t REG_SZ /d "HH:mm" 
 REG ADD "HKCU\Control Panel\International" /v "sTimeFormat" /t REG_SZ /d "H:mm:ss" /f
 
 ECHO ********** Google as default search **********
-ECHO ********** Google - ����� �� ��������� **********
+ECHO ********** Google - поиск по умолчанию **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\SearchScopes" /v "DefaultScope" /t REG_SZ /d "{89418666-DF74-4CAC-A2BD-B69FB4A0228A}" /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\SearchScopes\{89418666-DF74-4CAC-A2BD-B69FB4A0228A}" /f
@@ -773,12 +773,12 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\SearchScopes\{89418666-DF74-4
 REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\SearchScopes\{89418666-DF74-4CAC-A2BD-B69FB4A0228A}" /v "URL" /t REG_SZ /d "http://www.google.com/search?q={searchTerms}&sourceid=ie7&rls=com.microsoft:{language}:{referrer:source}&ie={inputEncoding?}&oe={outputEncoding?}" /f
 
 ECHO ********** Windows Update - only directly from Microsoft **********
-ECHO ********** ���������� Windows - �������� ������ ��������������� �� Microsoft **********
+ECHO ********** Обновление Windows - получать только непосредственно от Microsoft **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeliveryOptimization\Config" /v "DODownloadMode" /t REG_DWORD /d 0 /f
 
 ECHO ********** Windows Update **********
-ECHO ********** ���������� Windows **********
+ECHO ********** Обновление Windows **********
 
 NET STOP wuauserv
 SCHTASKS /Change /TN "\Microsoft\Windows\WindowsUpdate\Automatic App Update" /DISABLE
@@ -789,23 +789,23 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Updat
 NET START wuauserv
 
 ECHO ********** Disable shares your WiFi network login **********
-ECHO ********** ��������� ����� ������� Wi-Fi ���� **********
+ECHO ********** Отключить общие ресурсы Wi-Fi сети **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" /v "value" /t REG_DWORD /d 0 /f
 REG ADD "HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" /v "value" /t REG_DWORD /d 0 /f
 
 ECHO ********** Expand to current in the left panel in Explorer **********
-ECHO ********** ���������� � ������� ����� � ����� ������ � ���������� **********
+ECHO ********** Развернуть к текущей папке в левой панели в проводнике **********
 
 REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "NavPaneExpandToCurrentFolder" /t REG_DWORD /d 1 /f
 
 ECHO ********** Prevent from creating LNK files in the Recents folder **********
-ECHO ********** ������������� �������� ������� � ����� �������� **********
+ECHO ********** Предотвратить создание ярлыков в папке Недавние **********
 
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoRecentDocsHistory" /t REG_DWORD /d 1 /f
 
 ECHO ********** Remove the Previous Versions tab, which appears when right-clicking a file > Properties **********
-ECHO ********** ������� ������� ���������� ������, ������� ���������� ��� ������� ������ ������� ���� ����> �������� **********
+ECHO ********** Удалить вкладку Предыдущие версии, которая появляется при нажатии правой кнопкой мыши файл> Свойства **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v NoPreviousVersionsPage /t REG_DWORD /d 1 /f
 
@@ -815,7 +815,7 @@ ECHO **********  **********
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ExtendedUIHoverTime" /t REG_DWORD /d "10000" /f
 
 ECHO ********** Disable Notification Center Completely in Windows 10.reg **********
-ECHO ********** �������� ����������� ���� ������ ����� - 10 ������ **********
+ECHO ********** Задержка всплывающих окон панели задач - 10 секунд **********
 
 REG ADD "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t REG_DWORD /d "1" /f
 REG ADD "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender" /v "DisableRoutinelyTakingAction" /t REG_DWORD /d "1" /f
@@ -824,12 +824,12 @@ REG ADD "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v "DisableNotificationCenter" /t REG_DWORD /d "1" /f
 
 ECHO ********** All installed updates will be permanent and cannot be uninstalled after running this command **********
-ECHO ********** ��������� � ������ �������� �������, �������������� � ����� ���� - ��� ������������� ���������� Windows ����� ����������� � �� ����� ���� ������� **********
+ECHO ********** Выполняет в образе операции очистки, восстановления и сброс базы - все установленные обновления Windows будут постоянными и не могут быть удалены **********
 
 DISM /online /Cleanup-Image /StartComponentCleanup /ResetBase
 
 ECHO ********** Clean Junk files **********
-ECHO ********** �������� ��������� ����� **********
+ECHO ********** Очистить временные файлы **********
 
 DEL /f /s /q %systemdrive%\*.tmp
 DEL /f /s /q %systemdrive%\*._mp
@@ -848,7 +848,7 @@ DEL /f /s /q "%userprofile%\Local Settings\Temp\*.*"
 DEL /f /s /q "%userprofile%\recent\*.*"
 
 ECHO ********** Clean autostart regystry **********
-ECHO ********** �������� ���������� � ������� **********
+ECHO ********** Очистить автозапуск в реестре **********
 
 REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /f
 REG DELETE HKSU\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce /f
@@ -861,7 +861,7 @@ REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices /f
 REG DELETE HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce /f
 
 ECHO ********** Clean autostart folders **********
-ECHO ********** �������� ����� ������������ **********
+ECHO ********** Очистить папки автозагрузки **********
 
 PUSHD "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 2>Nul RD /S/Q "%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
@@ -871,6 +871,6 @@ PUSHD "%SystemDrive%\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup"
 POPD
 
 ECHO ********** Reboot **********
-ECHO ********** ������������ **********
+ECHO ********** Перезагрузка **********
 
 SHUTDOWN -r -t 00
