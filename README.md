@@ -1,4 +1,4 @@
-# Win 10 batch optimizer.
+# Windows 10 batch optimizer.
 
 ## Fast! Easy! Secure! 
 
