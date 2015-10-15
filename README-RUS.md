@@ -2,7 +2,7 @@
 
 ## Уберём лишнее, настроим нужное!
 
-##<a href="http://seregaspb.ru/blog/nastrojshik-windows-10" target="_blank">Официальная страница программы.</a>
+##<a href="http://seregaspb.ru/blog/avtonastrojka-windows-10" target="_blank">Официальная страница программы.</a>
 ##### Одна просьба: если добавите что-то полезное, исправите или улучшите - не поленитесь поделиться - <a href="http://vk.com/s9325901" target="_blank">написать мне в VK</a> или <a href="http://seregaspb.ru/kontakty" target="_blank">связаться другим способом</a> - мне это очень интересно.
 
 ###### Вы можете легко настроить или отключить автоматические обновления Windows 10 и другие хитрости!
