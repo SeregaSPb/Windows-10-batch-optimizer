@@ -16,7 +16,7 @@ REM Computer name
 REM Имя компьютера
 SET MyComputerName=Home-PC
 
-REM Unused IP adress (for перенаправлений)
+REM Unused IP adress (для перенаправлений)
 REM Неиспользуемый IP (for redirects)
 SET NOURL=127.0.0.0
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
