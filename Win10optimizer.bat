@@ -156,8 +156,9 @@ PowerShell -Command "Get-Service WMPNetworkSvc | Set-Service -StartupType Disabl
 PowerShell -Command "Get-Service WSearch | Set-Service -StartupType Disabled"
 PowerShell -Command "Get-Service SysMain | Set-Service -StartupType Disabled"
 SC config "DiagTrack" start= disabled
-SC config "diagnosticshub.standardcollector.service" start= disabled
 SC config "dmwappushservice" start= disabled
+SC config "diagnosticshub.standardcollector.service" start= disabled
+SC config "DPS " start= disabled
 SC config "RemoteRegistry" start= disabled
 SC config "TrkWks" start= disabled
 SC config "WMPNetworkSvc" start= disabled
@@ -166,6 +167,7 @@ SC config "SysMain" start= disabled
 NET STOP DiagTrack
 NET STOP diagnosticshub.standardcollector.service
 NET STOP dmwappushservice
+NET STOP DPS
 NET STOP RemoteRegistry
 NET STOP TrkWks
 NET STOP WMPNetworkSvc
@@ -174,6 +176,7 @@ NET STOP SysMain
 SC delete DiagTrack
 SC delete "diagnosticshub.standardcollector.service"
 SC delete "dmwappushservice"
+SC delete "DPS"
 SC delete "RemoteRegistry"
 SC delete "TrkWks"
 SC delete "WMPNetworkSvc"
