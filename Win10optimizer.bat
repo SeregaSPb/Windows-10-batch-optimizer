@@ -149,6 +149,7 @@ ECHO ********** Удалить службы **********
 PowerShell -Command "Get-Service DiagTrack | Set-Service -StartupType Disabled"
 PowerShell -Command "Get-Service dmwappushservice | Set-Service -StartupType Disabled"
 PowerShell -Command "Get-Service diagnosticshub.standardcollector.service | Set-Service -StartupType Disabled"
+PowerShell -Command "Get-Service DPS | Set-Service -StartupType Disabled"
 PowerShell -Command "Get-Service RemoteRegistry | Set-Service -StartupType Disabled"
 PowerShell -Command "Get-Service TrkWks | Set-Service -StartupType Disabled"
 PowerShell -Command "Get-Service WMPNetworkSvc | Set-Service -StartupType Disabled"
