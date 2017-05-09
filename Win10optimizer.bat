@@ -59,7 +59,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Servicing" /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Servicing" /v "LocalSourcePath" /t REG_EXPAND_SZ /d %NOURL% /f
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Servicing" /v "UseWindowsUpdate" /t REG_DWORD /d 2 /f
 
-ECHO ********** Regystry tweaks **********
+ECHO ********** Configure privacy **********
 ECHO ********** Настроить конфиденциальность **********
 
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters" /v "EnablePrefetcher" /t REG_DWORD /d %Prefetch% /f
@@ -78,6 +78,34 @@ REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main" /v "RunOnceHasShown" /t
 REG ADD "HKLM\SOFTWARE\Microsoft\Internet Explorer\Main" /v "RunOnceComplete" /t REG_DWORD /d 1 /f
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "DisableFirstRunCustomize" /t REG_DWORD /d 1 /f
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "RunOnceHasShown" /t REG_DWORD /d 1 /f
+
+ECHO ********** Lock Screen No Camera **********
+ECHO ********** Отключить камеру на экране блокировки **********
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization" /v "NoLockScreenCamera" /t REG_DWORD /d 1 /f
+
+ECHO ********** Disable Password reveal button **********
+ECHO ********** Отключить кнопку раскрытия пароля **********
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CredUI" /v "DisablePasswordReveal" /t REG_DWORD /d 1 /f
+
+ECHO ********** Disable DomainPicturePassword **********
+ECHO ********** Отключить пароль для изображения домена **********
+REG ADD "HKLM\Software\Policies\Microsoft\Windows\System" /v "BlockDomainPicturePassword" /t REG_DWORD /d 1 /f
+
+ECHO ********** Disable handwriting data sharing **********
+ECHO ********** Отключить совместное использование данных рукописного ввода **********
+REG ADD "HKLM\Software\Policies\Microsoft\Windows\TabletPC" /v "PreventHandwritingDataSharing" /t REG_DWORD /d 1 /f
+
+ECHO ********** No Web/Bing Search **********
+ECHO ********** Отключить поиск Bing **********
+HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "DisableWebSearch" /t REG_DWORD /d 1 /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "ConnectedSearchUseWeb" /t REG_DWORD /d 0 /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "ConnectedSearchUseWebOverMeteredConnections" /t REG_DWORD /d 0 /f
+REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEnabled" /t REG_DWORD /d 0 /f
+
+ECHO ********** Suppress Microsoft Feedback **********
+ECHO ********** Подавлять отзывы Microsoft **********
+REG ADD "HKLM\Software\Policies\Microsoft\Windows\DataCollection /v "DoNotShowFeedbackNotifications" /t REG_DWORD /d 1 /f
+REG ADD "HKCU\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
 
 ECHO ********** Don't allow SpyNet **********
 ECHO ********** Отключить SpyNet **********
