@@ -275,6 +275,8 @@ SCHTASKS /Change /TN "\Microsoft\Windows\Windows Filtering Platform\BfeOnService
 SCHTASKS /Change /TN "\Microsoft\Windows\CloudExperienceHost\CreateObjectTask" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\\Microsoft\Windows\File Classification Infrastructure\Property Definition Sync" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /DISABLE
+SCHTASKS /Change /TN "\Microsoft\Windows\Feedback\Siuf\DmClient" /DISABLE
+SCHTASKS /Change /TN "\Microsoft\Windows\Feedback\Siuf\DmClientOnScenarioDownload" /DISABLE
 
 ECHO ********** Block hosts **********
 ECHO ********** Блокировать нежелательные веб узлы в файл hosts **********
