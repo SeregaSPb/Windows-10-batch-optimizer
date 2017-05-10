@@ -81,22 +81,27 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Internet Explorer\Main" /v "RunOnceHas
 
 ECHO ********** Lock Screen No Camera **********
 ECHO ********** Отключить камеру на экране блокировки **********
+
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization" /v "NoLockScreenCamera" /t REG_DWORD /d 1 /f
 
 ECHO ********** Disable Password reveal button **********
 ECHO ********** Отключить кнопку раскрытия пароля **********
+
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\CredUI" /v "DisablePasswordReveal" /t REG_DWORD /d 1 /f
 
 ECHO ********** Disable DomainPicturePassword **********
 ECHO ********** Отключить пароль для изображения домена **********
+
 REG ADD "HKLM\Software\Policies\Microsoft\Windows\System" /v "BlockDomainPicturePassword" /t REG_DWORD /d 1 /f
 
 ECHO ********** Disable handwriting data sharing **********
 ECHO ********** Отключить совместное использование данных рукописного ввода **********
+
 REG ADD "HKLM\Software\Policies\Microsoft\Windows\TabletPC" /v "PreventHandwritingDataSharing" /t REG_DWORD /d 1 /f
 
 ECHO ********** No Web/Bing Search **********
 ECHO ********** Отключить поиск Bing **********
+
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "DisableWebSearch" /t REG_DWORD /d 1 /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "ConnectedSearchUseWeb" /t REG_DWORD /d 0 /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search" /v "ConnectedSearchUseWebOverMeteredConnections" /t REG_DWORD /d 0 /f
@@ -104,7 +109,8 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEn
 
 ECHO ********** Suppress Microsoft Feedback **********
 ECHO ********** Подавлять отзывы Microsoft **********
-REG ADD "HKLM\Software\Policies\Microsoft\Windows\DataCollection /v "DoNotShowFeedbackNotifications" /t REG_DWORD /d 1 /f
+
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v "DoNotShowFeedbackNotifications" /t REG_DWORD /d 1 /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
 
 ECHO ********** Don't allow SpyNet **********
@@ -158,6 +164,7 @@ REG ADD "HKLM\COMPONENTS\DerivedData\Components\amd64_microsoft-windows-c..lemet
 
 ECHO ********** Disable pre-release features or settings **********
 ECHO ********** Отключить пресс-релиз функции **********
+
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /v "EnableConfigFlighting" /t REG_DWORD /d 0 /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\PreviewBuilds" /v "EnableExperimentation" /t REG_DWORD /d 0 /f
 
