@@ -110,7 +110,7 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search" /v "BingSearchEn
 ECHO ********** Suppress Microsoft Feedback **********
 ECHO ********** Подавлять отзывы Microsoft **********
 
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v "DoNotShowFeedbackNotifications" /t REG_DWORD /d 1 /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v "DoNotShowFeedbackNotifications" /t REG_DWORD /d 1 /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Siuf\Rules" /v "NumberOfSIUFInPeriod" /t REG_DWORD /d 0 /f
 
 ECHO ********** Don't allow SpyNet **********
