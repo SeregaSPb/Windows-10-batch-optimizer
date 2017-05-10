@@ -495,7 +495,7 @@ REM  ********** Изменить часы и дата форматов 24 час
 REG ADD "HKCU\Control Panel\International" /v "iMeasure" /t REG_SZ /d "0" /f
 REG ADD "HKCU\Control Panel\International" /v "iNegCurr" /t REG_SZ /d "1" /f
 REG ADD "HKCU\Control Panel\International" /v "iTime" /t REG_SZ /d "1" /f
-REG ADD "HKCU\Control Panel\International" /v "sShortDate" /t REG_SZ /d "yyyy/MM/dd" /f
+REG ADD "HKCU\Control Panel\International" /v "sShortDate" /t REG_SZ /d "dd.MM.yyyy" /f
 REG ADD "HKCU\Control Panel\International" /v "sShortTime" /t REG_SZ /d "HH:mm" /f
 REG ADD "HKCU\Control Panel\International" /v "sTimeFormat" /t REG_SZ /d "H:mm:ss" /f
 
