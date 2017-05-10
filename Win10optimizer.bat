@@ -856,18 +856,18 @@ ECHO ********** Предотвратить создание ярлыков в п
 
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v "NoRecentDocsHistory" /t REG_DWORD /d 1 /f
 
-ECHO ********** Remove the Previous Versions tab, which appears when right-clicking a file > Properties **********
-ECHO ********** Удалить вкладку Предыдущие версии, которая появляется при нажатии правой кнопкой мыши файл> Свойства **********
+ECHO ********** Remove the Previous Versions tab in file Properties **********
+ECHO ********** Удалить вкладку Предыдущие версии в свойствах файла **********
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v NoPreviousVersionsPage /t REG_DWORD /d 1 /f
 
 ECHO ********** Delay Taskbar pop-ups to 10 seconds **********
-ECHO **********  **********
+ECHO ********** Задержка всплывающих окон панели задач - 10 секунд **********
 
 REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ExtendedUIHoverTime" /t REG_DWORD /d "10000" /f
 
 ECHO ********** Disable Notification Center Completely in Windows 10.reg **********
-ECHO ********** Задержка всплывающих окон панели задач - 10 секунд **********
+ECHO ********** Отключить центр уведомлений в Windows 10 **********
 
 REG ADD "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t REG_DWORD /d "1" /f
 REG ADD "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender" /v "DisableRoutinelyTakingAction" /t REG_DWORD /d "1" /f
