@@ -17,8 +17,8 @@ REM Computer name
 REM Имя компьютера
 SET MyComputerName=Home-PC
 
-REM Unused IP adress (для перенаправлений)
-REM Неиспользуемый IP (for redirects)
+REM Unused IP adress (for redirects)
+REM Неиспользуемый IP (для перенаправлений)
 SET NOURL=127.0.0.0
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO ********** Regystry backup COPY to C:/RegBackup/Backup.reg 
