@@ -274,7 +274,6 @@ SCHTASKS /Change /TN "\Microsoft\Windows\RemoteAssistance\RemoteAssistanceTask" 
 SCHTASKS /Change /TN "\Microsoft\Windows\PI\Sqm-Tasks" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /DISABLE
-SCHTASKS /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\Maps\MapsToastTask" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\Maintenance\WinSAT" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\FileHistory\File History (maintenance mode)" /DISABLE
@@ -295,7 +294,7 @@ SCHTASKS /Change /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdat
 SCHTASKS /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Windows\AppID\SmartScreenSpecific" /DISABLE
 SCHTASKS /Change /TN "\Microsoft\Office\OfficeTelemetryAgentLogOn" /DISABLE
-SCHTASKS /Change /TN "\Microsoft\Office\OfficeTelemetryAgentFallBack" /DISABLE 
+SCHTASKS /Change /TN "\Microsoft\Office\OfficeTelemetryAgentFallBack" /DISABLE
 
 ECHO ********** Remove Retail Demo
 REM  ********** Удалить Demo контент
@@ -1158,15 +1157,10 @@ NETSH advfirewall firewall add rule name="telemetry_asimov-sandbox.vortex.data.m
 NETSH advfirewall firewall add rule name="telemetry_array204-prod.dodsp.mp.microsoft.com.nsatc.net" dir=out action=block remoteip=65.52.0.0-65.52.255.255 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_apnic.net" dir=out action=block remoteip=222.216.3.213 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_apnic.net" dir=out action=block remoteip=221.232.247.2 enable=yes
-NETSH advfirewall firewall add rule name="telemetry_ams1-ib.adnxs.com" dir=out action=block remoteip=37.252.163.207 enable=yes
-NETSH advfirewall firewall add rule name="telemetry_ams1-ib.adnxs.com" dir=out action=block remoteip=37.252.162.228 enable=yes
-NETSH advfirewall firewall add rule name="telemetry_ams1-ib.adnxs.com" dir=out action=block remoteip=37.252.162.216 enable=yes
+NETSH advfirewall firewall add rule name="telemetry_ams1-ib.adnxs.com" dir=out action=block remoteip=37.252.163.207,37.252.162.228,37.252.162.216 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_ampudc.udc0.glbdns2.microsoft.com" dir=out action=block remoteip=137.116.81.24 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_akadns.info" dir=out action=block remoteip=157.56.96.54 enable=yes
-NETSH advfirewall firewall add rule name="telemetry_ads2.msn.com" dir=out action=block remoteip=104.82.14.146 enable=yes
-NETSH advfirewall firewall add rule name="telemetry_ads.msn.com.nsatc.net" dir=out action=block remoteip=65.55.128.80 enable=yes
-NETSH advfirewall firewall add rule name="telemetry_ads.msn.com.nsatc.net" dir=out action=block remoteip=157.56.91.82 enable=yes
-NETSH advfirewall firewall add rule name="telemetry_ads.msn.com" dir=out action=block remoteip=157.56.91.82,157.56.23.91,104.82.14.146,207.123.56.252,185.13.160.61,8.254.209.254 enable=yes
+NETSH advfirewall firewall add rule name="telemetry_ads.msn.com" dir=out action=block remoteip=157.56.91.82,157.56.23.91,104.82.14.146,207.123.56.252,185.13.160.61,8.254.209.254,65.55.128.80 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_adnxs.com" dir=out action=block remoteip=37.252.170.80 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_adnxs.com" dir=out action=block remoteip=37.252.170.142 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_adnxs.com" dir=out action=block remoteip=37.252.170.140 enable=yes
