@@ -7,7 +7,7 @@ REM  ********** Настройки
 
 REM 1-Disable autoupdate,2-ask for download and install, 3-ask for reboot, 4-automatic update
 REM 1-отлючить автоматическое обновление,2-спрашивать о загрузке и установке, 3-спрашивать о перезагрузке, 4-автоматическое обновление
-SET AutoUpdateN=2
+SET AutoUpdateN=1
 
 REM if system on SSD drive - set 0, HDD - 3
 REM Если система на SSD диске - установите 0, HDD - 3
