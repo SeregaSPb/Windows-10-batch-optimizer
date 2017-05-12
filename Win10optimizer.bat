@@ -91,6 +91,8 @@ REM  ********** Отключить телеметрию Skype
 REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW /v "TraceLevelThreshold" /t REG_DWORD /d 0 /f
 REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype" /v "EnableTracing" /t REG_DWORD /d 0 /f
 REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW" /v "EnableTracing" /t REG_DWORD /d 0 /f
+REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype" /v "WPPFilePath" /t REG_SZ /d "%TEMP%\Tracing\WPPMedia" /f
+REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW" /v "WPPFilePath" /t REG_SZ /d "%TEMP%\Tracing\WPPMedia" /f
 
 ECHO ********** Lock Screen No Camera
 REM  ********** Отключить камеру на экране блокировки
