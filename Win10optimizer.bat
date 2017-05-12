@@ -737,7 +737,7 @@ GOTO RESTART
 ECHO ********** Block hosts
 REM  ********** Блокировать нежелательные веб узлы в файл hosts
 
-COPY "%WINDIR%\system32\drivers\etc\hosts" "%WINDIR%\system32\drivers\etc\hosts.bak"
+COPY "%WINDIR%\system32\drivers\etc\hosts" "%WINDIR%\system32\drivers\etc\hosts.backup.txt"
 ATTRIB -r "%WINDIR%\system32\drivers\etc\hosts"
 SET HOSTS=%WINDIR%\System32\drivers\etc\hosts
 FIND /C /I "www.msn.com" %HOSTS%
