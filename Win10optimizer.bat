@@ -86,6 +86,12 @@ REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" /v "RunOnceComplete" /t
 REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" /v "DoNotTrack" /t REG_DWORD /d 1 /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Internet Explorer\Main" /v "DisableFirstRunCustomize" /t REG_DWORD /d 1 /f
 
+ECHO ********** Disable Skype telemetry
+REM  ********** Отключить телеметрию Skype
+REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW /v "TraceLevelThreshold" /t REG_DWORD /d 0 /f
+REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype" /v "EnableTracing" /t REG_DWORD /d 0 /f
+REG ADD "HKCU\Software\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW" /v "EnableTracing" /t REG_DWORD /d 0 /f
+
 ECHO ********** Lock Screen No Camera
 REM  ********** Отключить камеру на экране блокировки
 
