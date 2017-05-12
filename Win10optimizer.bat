@@ -600,9 +600,11 @@ REG ADD "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Policy Ma
 REG ADD "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows Defender\Real-Time Protection" /v "DisableRealtimeMonitoring" /t REG_DWORD /d "1" /f
 REG ADD "HKCU\SOFTWARE\Policies\Microsoft\Windows\Explorer" /v "DisableNotificationCenter" /t REG_DWORD /d "1" /f
 
-ECHO ********** Clean Junk files
-REM  ********** Очистить временные файлы
-
+ECHO ********** Clean Junk files and thumbcache
+REM  ********** Очистить временные файлы и кэш иконок
+taskkill /f /im explorer.exe
+timeout 2 /nobreak>nul
+DEL /F /S /Q /A %LocalAppData%\Microsoft\Windows\Explorer\thumbcache_*.db
 DEL /f /s /q %systemdrive%\*.tmp
 DEL /f /s /q %systemdrive%\*._mp
 DEL /f /s /q %systemdrive%\*.log
@@ -619,6 +621,8 @@ DEL /f /q %userprofile%\recent\*.*
 DEL /f /s /q "%userprofile%\Local Settings\Temporary Internet Files\*.*"
 DEL /f /s /q "%userprofile%\Local Settings\Temp\*.*"
 DEL /f /s /q "%userprofile%\recent\*.*"
+timeout 2 /nobreak>nul
+start explorer.exe
 
 ECHO ********** Clean autostart regystry
 REM  ********** Очистить автозапуск в реестре
