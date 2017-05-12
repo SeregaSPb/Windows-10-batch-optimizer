@@ -390,7 +390,7 @@ REG ADD "HKCU\SOFTWARE\Policies\Microsoft\office\16.0\word\security" /v "blockco
 
 ECHO ********** Disable Skype telemetry
 REM  ********** Отключить телеметрию Skype
-REG ADD "HKCU\SOFTWARE\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW /v "TraceLevelThreshold" /t REG_DWORD /d 0 /f
+REG ADD "HKCU\SOFTWARE\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW" /v "TraceLevelThreshold" /t REG_DWORD /d 0 /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Tracing\WPPMediaPerApp\Skype" /v "EnableTracing" /t REG_DWORD /d 0 /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Tracing\WPPMediaPerApp\Skype\ETW" /v "EnableTracing" /t REG_DWORD /d 0 /f
 REG ADD "HKCU\SOFTWARE\Microsoft\Tracing\WPPMediaPerApp\Skype" /v "WPPFilePath" /t REG_SZ /d "%TEMP%\Tracing\WPPMedia" /f
