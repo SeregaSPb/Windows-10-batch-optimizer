@@ -17,8 +17,8 @@ REM Computer name
 REM Имя компьютера
 SET MyComputerName=Home-PC
 
-REM Unused IP adress (for redirects)
-REM Неиспользуемый IP (для перенаправлений)
+REM Unused IP adress (для перенаправлений)
+REM Неиспользуемый IP (for redirects)
 SET NOURL=127.0.0.0
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ECHO ********** Regystry backup COPY to C:/RegBackup/Backup.reg 
@@ -610,6 +610,7 @@ DEL /f /s /q %systemdrive%\*.gid
 DEL /f /s /q %systemdrive%\*.chk
 DEL /f /s /q %systemdrive%\*.old
 DEL /f /s /q %systemdrive%\recycled\*.*
+DEL /f /s /q %systemdrive%\$Recycle.Bin\*.*
 DEL /f /s /q %windir%\*.bak
 DEL /f /s /q %windir%\prefetch\*.*
 rd /s /q %windir%\temp & md %windir%\temp
