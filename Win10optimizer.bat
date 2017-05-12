@@ -530,7 +530,7 @@ REM  ********** Выключить Фильтр клавиш, когда SHIFT �
 REG ADD "HKCU\Control Panel\Accessibility\Keyboard Response" /v "Flags" /t REG_SZ /d "122" /f
 
 ECHO ********** Change Clock and Date formats 24H, metric (Sign out required to see changes)
-REM  ********** Изменить часы и дата форматов 24 часа, метрическая система
+REM  ********** Изменить формат часов и даты 24 часа, метрическая система
 
 REG ADD "HKCU\Control Panel\International" /v "iMeasure" /t REG_SZ /d "0" /f
 REG ADD "HKCU\Control Panel\International" /v "iNegCurr" /t REG_SZ /d "1" /f
@@ -575,11 +575,6 @@ REM  ********** Отключить общие ресурсы Wi-Fi сети
 
 REG ADD "HKLM\SOFTWARE\Microsoft\PolicyManager\default\WiFi\AllowAutoConnectToWiFiSenseHotspots" /v "value" /t REG_DWORD /d 0 /f
 REG ADD "HKLM\Software\Microsoft\PolicyManager\default\WiFi\AllowWiFiHotSpotReporting" /v "value" /t REG_DWORD /d 0 /f
-
-ECHO ********** Expand to current in the left panel in Explorer
-REM  ********** Развернуть к текущей папке в левой панели в проводнике
-
-REG ADD "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "NavPaneExpandToCurrentFolder" /t REG_DWORD /d 1 /f
 
 ECHO ********** Prevent from creating LNK files in the Recents folder
 REM  ********** Предотвратить создание ярлыков в папке Недавние
