@@ -531,6 +531,11 @@ REM  ********** Установить автоматический вход в с
 
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v "AutoAdminLogon" /t REG_DWORD /d 1 /f
 
+ECHO ********** Disable Test mode
+REM  ********** Отключить Тестовый режим"
+
+bcdedit /set TESTSIGNING OFF
+
 ECHO ********** Remove Logon screen wallpaper
 REM  ********** Убрать обои на экране входа
 
