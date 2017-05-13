@@ -1251,6 +1251,11 @@ NETSH advfirewall firewall add rule name="telemetry_adnxs.com" dir=out action=bl
 NETSH advfirewall firewall add rule name="telemetry_ad.doubleclick.net" dir=out action=block remoteip=172.217.20.230 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_acyfdr.explicit.bing.net" dir=out action=block remoteip=204.79.197.201 enable=yes
 NETSH advfirewall firewall add rule name="telemetry_a.msft.net" dir=out action=block remoteip=208.76.45.53 enable=yes
+
+ECHO ********** Block 445 port (security)
+REM  ********** Блокировка 445 порта (безопасность)
+
+NETSH advfirewall firewall add rule name="Block_TCP-445" dir=in action=block protocol=tcp localport=445
 GOTO REG
 
 :RESTART
