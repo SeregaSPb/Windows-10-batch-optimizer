@@ -683,6 +683,7 @@ ECHO ********** Disable SMB Protocol (sharing files and printers)
 REM  ********** Отключить протокол SMB (общий доступ к файлам и принтерам)
 
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v SMB1 /t REG_DWORD /d 0 /f
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" /v SMB2 /t REG_DWORD /d 0 /f
 dism /online /norestart /disable-feature /featurename:SMB1Protocol
 wmic service where "Name LIKE '%%lanmanserver%%'" call StopService
 wmic service where "Name LIKE '%%lanmanserver%%'" call ChangeStartMode Disabled
