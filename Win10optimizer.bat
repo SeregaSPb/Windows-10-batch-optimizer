@@ -692,6 +692,14 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUp
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update" /v "AUOptions" /t REG_DWORD /d %AutoUpdateN% /f
 NET START wuauserv
 
+ECHO ********** Disable Reboot after Windows Updates are installed
+REM  ********** Отключить перезагрузку после установки обновлений Windows
+
+SCHTASKS /Change /TN "Microsoft\Windows\UpdateOrchestrator\Reboot" /Disable
+ren "%WinDir%\System32\Tasks\Microsoft\Windows\UpdateOrchestrator\Reboot" "Reboot.bak"
+md "%WinDir%\System32\Tasks\Microsoft\Windows\UpdateOrchestrator\Reboot"
+SCHTASKS /Change /TN "Microsoft\Windows\UpdateOrchestrator\Reboot" /Disable
+
 ECHO ********** Disable shares your WiFi network login
 REM  ********** Отключить общие ресурсы Wi-Fi сети
 
