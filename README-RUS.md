@@ -80,7 +80,7 @@
 Как настроить приватность в Windows 10? Почему не отключить автоматическое обновление? Теперь в самой системе мы должны смотреть рекламу, а корпорации следить за каждой нажатой нами клавишей? Можно, конечно, пользоваться проверенным старым ПО, но лучше разобраться и настроить новое!
 
 ##### Помогите мне стать лучше - если есть идея, решение или исправление - поделитесь!
-* <a href="http://vk.com/s9325901" target="_blank">ВКонтакте</a> 
-* <a href="http://www.facebook.com/s9325901" title="facebook" target="_blank">Facebook</a>
+* <a href="http://vk.com/id393811" target="_blank">ВКонтакте</a> 
+* <a href="http://www.facebook.com/SeregaSPb.ru" title="facebook" target="_blank">Facebook</a>
 * <a href="http://seregaspb.ru/kontakty" target="_blank">Контакты на сайте</a>
 <img alt="SeregaSPb" src="http://seregaspb.ru/img/serega.png">
