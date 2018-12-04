@@ -62,6 +62,10 @@ This program will help you:
 * Clear the Startup folder
 * Reloading
 
+### Possible bugs:
+
+Skype may not work
+
 ### How to
 
 Run as administrator!  
