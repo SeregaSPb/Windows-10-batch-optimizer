@@ -13,6 +13,10 @@ REM if system on SSD drive - set 0, HDD - 3
 REM Если система на SSD диске - установите 0, HDD - 3
 SET Prefetch=0
 
+REM let apps access to microphone - 1, if you dont need microphone - 2, or set 0 to change it manualy in windows settings
+REM разрешить приложениям доступ к микрофону - 1, если вам не нужен микрофоно - 2, или 0 чтобы изменять параметр вручную в настройках Windows
+SET ACCESSMICROPHONE=1
+
 REM Computer name
 REM Имя компьютера
 SET MyComputerName=Home-PC
@@ -137,7 +141,7 @@ REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsSyncWit
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessTrustedDevices" /t REG_DWORD /d 2 /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessRadios" /t REG_DWORD /d 2 /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessMotion" /t REG_DWORD /d 2 /f
-REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessMicrophone" /t REG_DWORD /d 2 /f
+REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessMicrophone" /t REG_DWORD /d %ACCESSMICROPHONE% /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessMessaging" /t REG_DWORD /d 2 /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessLocation" /t REG_DWORD /d 2 /f
 REG ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy" /v "LetAppsAccessEmail" /t REG_DWORD /d 2 /f
